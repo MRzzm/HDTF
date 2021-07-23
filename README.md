@@ -33,3 +33,16 @@ If you use HDTF dataset, pls
 
 ## Inference Code
 coming soon......
+
+## Reference
+if you use HDTF, pls reference
+
+```
+@inproceedings{zhang2021flow,
+  title={Flow-Guided One-Shot Talking Face Generation With a High-Resolution Audio-Visual Dataset},
+  author={Zhang, Zhimeng and Li, Lincheng and Ding, Yu and Fan, Changjie},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={3661--3670},
+  year={2021}
+}
+```
