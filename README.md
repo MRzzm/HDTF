@@ -20,9 +20,9 @@ format:    video name | time stamps of clip1 | time stamps of clip2 | time stamp
 format:    video name+clip index | min_width | width |  min_height | height
 ```
 ## Processing of HDTF dataset
-If you use HDTF dataset, pls
+When using HDTF dataset, 
 
- 1. Download videos from  **xx_video_url.txt** with <a href="https://github.com/soimort/you-get" target="_blank">you-get</a>  tool or <a href="https://github.com/ytdl-org/youtube-dl" target="_blank">youtube-dl</a> tool. (pls download the highest definition version: 1080P or 720P).  Transform video into **.mp4** format. You'd better transform interlaced video to progressive video as well.
+ 1. We provide video and url in  **xx_video_url.txt**. (the highest definition of videos are 1080P or 720P).  Transform video into **.mp4** format and transform interlaced video to progressive video as well.
 
 2. Split long original video into appropriate talking head clips with time stamps in **xx_annotion_time.txt**.  Name the splitted clip as **video name_clip index.mp4**. For example, split the video  *Radio11.mp4 00:30-01:00 01:30-02:30*  into *Radio11_0.mp4* and *Radio11_1.mp4* .
 
