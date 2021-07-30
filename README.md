@@ -24,12 +24,12 @@ When using HDTF dataset,
 
  1. We provide video and url in  **xx_video_url.txt**. (the highest definition of videos are 1080P or 720P).  Transform video into **.mp4** format and transform interlaced video to progressive video as well.
 
-2. Split long original video into appropriate talking head clips with time stamps in **xx_annotion_time.txt**.  Name the splitted clip as **video name_clip index.mp4**. For example, split the video  *Radio11.mp4 00:30-01:00 01:30-02:30*  into *Radio11_0.mp4* and *Radio11_1.mp4* .
+2. We split long original video into talking head clips with time stamps in **xx_annotion_time.txt**.  Name the splitted clip as **video name_clip index.mp4**. For example, split the video  *Radio11.mp4 00:30-01:00 01:30-02:30*  into *Radio11_0.mp4* and *Radio11_1.mp4* .
 
-3. Crop the facial region with fixed window size in **xx_crop_wh.txt** and resize the video into **512 x 512** resolution.
+3. We crop the facial region with fixed window size in **xx_crop_wh.txt** and resize the video into **512 x 512** resolution.
 
 
-
+The HDTF dataset is available to download under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons Attribution 4.0 International License</a>.
 
 ## Reference
 if you use HDTF, pls reference
