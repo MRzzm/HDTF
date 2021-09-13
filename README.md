@@ -1,10 +1,12 @@
 
+
 # HDTF
 Flow-guided One-shot Talking Face Generation with a High-resolution Audio-visual Dataset 
 <a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Zhang_Flow-Guided_One-Shot_Talking_Face_Generation_With_a_High-Resolution_Audio-Visual_Dataset_CVPR_2021_paper.pdf" target="_blank">paper</a>    <a href="https://github.com/MRzzm/HDTF/blob/main/Supplementary%20Materials.pdf" target="_blank">supplementary</a>
 
 ## Details of HDTF dataset
 **./HDTF_dataset** consists of *youtube video url*, *video resolution* (in our method, may not be the best resolution), *time stamps of talking face*, *facial region* (in the our method) and *the zoom scale* of the cropped window.
+
 **xx_video_url.txt:** 
 
 
@@ -45,7 +47,7 @@ When using HDTF dataset,
 - We resize all cropped videos into **512 x 512** resolution.
 
 
-The HDTF dataset is available to download under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons Attribution 4.0 International License</a>. If you face any problems when processing HDTF, pls contact me.
+The HDTF dataset is available to download under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons Attribution 4.0 International License</a>. **Thanks @universome for provding the the script of data processing, pls visit [here](https://github.com/universome/HDTF) for more details.** If you face any problems when processing HDTF, pls contact me.
 
 ## Reference
 if you use HDTF, pls reference
