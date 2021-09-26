@@ -49,6 +49,19 @@ When using HDTF dataset,
 
 The HDTF dataset is available to download under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> Creative Commons Attribution 4.0 International License</a>. **Thanks @universome for provding the the script of data processing, pls visit [here](https://github.com/universome/HDTF) for more details.** If you face any problems when processing HDTF, pls contact me.
 
+## Inference code
+#### code of audio-to-animation
+coming soon......
+
+#### code of constructing approximate dense flow
+coming soon......
+
+#### code of animation-to-video module
+The code is in **./code_animation2video**, pls visit this dir for more details. 
+
+#### code of reproducing other works
+coming soon......
+
 ## Reference
 if you use HDTF, pls reference
 

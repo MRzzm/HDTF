@@ -1,0 +1,5 @@
+torch==1.0.0
+torchvision==0.2.2
+opencv_python==4.4.0.46
+~umpy==1.19.1
+numpy==1.21.2
