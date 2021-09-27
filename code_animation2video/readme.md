@@ -5,9 +5,9 @@
  2. Put the `checkpoint_animation2video.pth` into **./checkpoints**
  3. Put the `mengnalisa_Fapp.npy, taile_Fapp.npy` into **./test_data**
  4. run 
-> inference --image_path=./test_data/mengnalisa.jpg --dense_flow_path=./test_data/mengnalisa_Fapp.npy
+> python inference.py --image_path=./test_data/mengnalisa.jpg --dense_flow_path=./test_data/mengnalisa_Fapp.npy
 
 or
-> inference --image_path=./test_data/taile.jpg --dense_flow_path=./test_data/taile_Fapp.npy
+> python inference.py --image_path=./test_data/taile.jpg --dense_flow_path=./test_data/taile_Fapp.npy
 
 to generate all intermediate results of animation-to-video module.
