@@ -54,10 +54,10 @@ The HDTF dataset is available to download under a <a href="https://creativecommo
 coming soon......
 
 #### code of constructing approximate dense flow
-coming soon......
+The code is in **./code_constructing_Fapp**, pls visit [here](https://github.com/MRzzm/HDTF/tree/main/code_constructing_Fapp) for more details. 
 
 #### code of animation-to-video module
-The code is in **./code_animation2video**, pls visit this dir for more details. 
+The code is in **./code_animation2video**, pls visit [here](https://github.com/MRzzm/HDTF/tree/main/code_animation2video) for more details. 
 
 #### code of reproducing other works
 coming soon......
