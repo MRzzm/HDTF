@@ -39,7 +39,7 @@ def download_hdtf(source_dir: os.PathLike, output_dir: os.PathLike, num_workers:
         **process_video_kwargs,
      ) for vd in download_queue]
     pool = Pool(processes=num_workers)
-    tqdm_kwargs = dict(total=len(task_kwargs), desc=f'Downloading videos into {output_dir} (note: without sound)')
+    tqdm_kwargs = dict(total=len(task_kwargs), desc=f'Downloading videos into {output_dir}')
 
     for _ in tqdm(pool.imap_unordered(task_proxy, task_kwargs), **tqdm_kwargs):
         pass
@@ -167,15 +167,31 @@ def download_video(video_id, download_path, resolution: int=None, video_format="
         stderr = open(log_file, "a")
     video_selection = f"bestvideo[ext={video_format}]"
     video_selection = video_selection if resolution is None else f"{video_selection}[height={resolution}]"
-    command = [
+
+    video_command = [
         "youtube-dl",
         "https://youtube.com/watch?v={}".format(video_id), "--quiet", "-f",
         video_selection,
         "--output", download_path,
         "--no-continue"
     ]
-    return_code = subprocess.call(command, stderr=stderr)
-    success = return_code == 0
+    video_return_code = subprocess.call(video_command, stderr=stderr)
+
+    success = video_return_code == 0
+
+    if success:
+        audio_command = [
+            "youtube-dl",
+            "https://youtube.com/watch?v={}".format(video_id), "--quiet",
+            "--extract-audio",
+            "--audio-format", "wav",
+            "--output", f"{download_path[:-4]}.wav",
+            "--no-continue"
+        ]
+
+        audio_return_code = subprocess.call(audio_command, stderr=stderr)
+
+        success = audio_return_code == 0    
 
     if log_file is not None:
         stderr.close()
@@ -208,7 +224,7 @@ def cut_and_crop_video(raw_video_path, output_path, start, end, crop: List[int])
 
     x, out_w, y, out_h = crop
 
-    command = ' '.join([
+    video_command = ' '.join([
         "ffmpeg", "-i", raw_video_path,
         "-strict", "-2", # Some legacy arguments
         "-loglevel", "quiet", # Verbosity arguments
@@ -219,11 +235,28 @@ def cut_and_crop_video(raw_video_path, output_path, start, end, crop: List[int])
         output_path
     ])
 
-    return_code = subprocess.call(command, shell=True)
-    success = return_code == 0
+    video_return_code = subprocess.call(video_command, shell=True)
+    success = video_return_code == 0
 
     if not success:
-        print('Command failed:', command)
+        print('Video command failed:', video_command)
+        return success
+
+    audio_command = ' '.join([
+        "ffmpeg", "-i", f"{raw_video_path[:-4]}.wav",
+        "-strict", "-2", # Some legacy arguments
+        "-loglevel", "quiet", # Verbosity arguments
+        "-qscale", "0", # Preserve the quality
+        "-y", # Overwrite if the file exists
+        "-ss", str(start), "-to", str(end), # Cut arguments
+        f"{output_path[:-4]}.wav"
+    ])
+
+    audio_return_code = subprocess.call(audio_command, shell=True)
+    success = audio_return_code == 0
+
+    if not success:
+        print('Audio command failed:', audio_command)
 
     return success
 
